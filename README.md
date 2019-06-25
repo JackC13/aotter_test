@@ -1,3 +1,19 @@
+
+# 交付項目
+- ⼀個可執行的專案，包含以下項目
+  - 一支可以在瀏覽器中載入廣告的 javascript 程式，
+    ./dist/sdk.bundle.js
+    ./dist/main.css
+  - 一個可執行的範例網頁
+    index.html
+  - 需撰寫基本的 test
+    無
+  - 需撰寫基本的 API 文件
+- 專案請 commit 至 github 或 bitbucket 交付
+- 上線計畫書 — 假想這個專案應要正式上線，我們會問這些問題:
+    - 我們要還需要經過哪些測試，才可以正式上線?
+    - 有什麼方式可以搜集在使用者瀏覽器上遇到的錯誤?
+
 # 題目
 - 請設計一個 javascript sdk，讓開發者可以在自己的網站頁面中顯示廣告
 
@@ -81,18 +97,5 @@
     - The current and previous version of Firefox (Windows, macOS, Linux)
     - The current and previous version of Chrome (Windows, macOS, Linux)
     - The current and previous version of Safari (macOS)
-
-
-# 交付項目
-- ⼀個可執行的專案，包含以下項目
-  - 一支可以在瀏覽器中載入廣告的 javascript 程式，
-  - 一個可執行的範例網頁
-  - 需撰寫基本的 test
-  - 需撰寫基本的 API 文件
-- 專案請 commit 至 github 或 bitbucket 交付
-- 上線計畫書 — 假想這個專案應要正式上線，我們會問這些問題:
-    - 我們要還需要經過哪些測試，才可以正式上線?
-    - 有什麼方式可以搜集在使用者瀏覽器上遇到的錯誤?
-
-
+    
 # aotter_test
