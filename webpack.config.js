@@ -16,7 +16,6 @@ module.exports = {
       {
         test: /\.(scss|sass)$/,
         use: [
-            // 需要用到的 loader
             MiniCssExtractPlugin.loader,
             "css-loader",
             "sass-loader"
@@ -26,8 +25,6 @@ module.exports = {
   },    
   plugins: [
     new MiniCssExtractPlugin({
-        // 指定輸出位置
-        // [name] 為上方進入點設定的 "名稱"
         filename: "./[name].css"
     })
   ]

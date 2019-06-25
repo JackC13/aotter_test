@@ -1,3 +1,5 @@
+const apiUrl = "http://localhost:3000/ads";
+
 function insertAD(type,_ads,index){
   if(type == "VIDEO"){
     on_ad_loaded(`<div class="video-container"><iframe width="100%" height="315"
@@ -28,9 +30,11 @@ function setAd(){
     _ads = ads;
   }
   //準備建立廣告
+  let url;
   for(let i = 0;i<_ads.length;i++){
     //廣告是否成功？
     if(_ads[i].success){
+      url = _ads[0].impression_url;
       //插入dom
       ad_blocks[i] = addADBlock(ad_blocks[i]);
 
@@ -47,9 +51,11 @@ function setAd(){
   }
   //廣告載完了
   ad_box.addEventListener("finishAD",function(e){
-    ad_box.setAttribute("is-success",e.detail.attr);
+    ad_box.setAttribute("is-done",e.detail.attr);
   })  
-  on_ad_impression("y",_ads[0].impression_url,2000);
+  if(url){
+    on_ad_impression("y",url,2000);
+  }
 }
 
 var ad_box;
@@ -129,7 +135,7 @@ function on_ad_impression(_attr,url,sec){
   console.log("廣告觀看超過"+sec+"毫秒");
   ad_box.dispatchEvent(event);
   setTimeout(()=>{
-    // window.open(url,"_self");
+    window.open(url,"_blank");
   },sec);
 }
 //取廣告資訊
@@ -139,7 +145,7 @@ function getAd(){
   for(let i = 0;i<ad_blocks.length;i++){
     (function(i){
       xhttp[i] = new XMLHttpRequest();
-      xhttp[i].open("GET","http://localhost:3000/ads",false);
+      xhttp[i].open("GET",apiUrl,false);
       xhttp[i].onreadystatechange = function(){
           if (xhttp[i].readyState === 4 && xhttp[i].status === 200){
               ads.push(JSON.parse(xhttp[i].responseText));

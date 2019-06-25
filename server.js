@@ -22,12 +22,10 @@ const getAd = (type = '') => {
 
 //cors
 const corsOptions = {
-  origin: [
-    'http://localhost:5500',
-    'http://127.0.0.1:5500',
-  ],
-  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS',
-  allowedHeaders: ['Content-Type', 'Authorization'],
+  "origin": "*",
+  "methods": "GET,HEAD,PUT,PATCH,POST,DELETE",
+  "preflightContinue": false,
+  "optionsSuccessStatus": 204
 };
 app.use(cors(corsOptions));
 
